@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bjärke</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400&family=Geist:wght@400&display=swap" rel="stylesheet">
+<style>
+  /* 1 unit = 1px on the 1440px Figma frame; scales with the viewport */
+  :root {
+    --u: calc(100vw / 1440);
+    --ink: #070707;
+    --muted: #8c8c8c;
+    --media: #ededed;
+    --margin: calc(54 * var(--u));
+    --gap: calc(7 * var(--u));
+    --col: calc(657 * var(--u));
+    --radius: calc(4 * var(--u));
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; color: var(--ink); font-family: "Geist", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; }
+
+  .page { padding: 0 var(--margin); }
+
+  /* Type */
+  .label { font-family: "Archivo", sans-serif; font-size: max(11px, calc(12 * var(--u))); line-height: 1.45; text-transform: uppercase; }
+  .label.muted { color: var(--muted); }
+  .display { font-size: calc(283 * var(--u)); line-height: 0.8; letter-spacing: -0.05em; }
+  .statement { font-size: calc(75 * var(--u)); line-height: 1; letter-spacing: -0.04em; max-width: calc(1210 * var(--u)); }
+  .body { font-size: calc(27 * var(--u)); line-height: 1.3; letter-spacing: -0.04em; }
+
+  /* Grid */
+  .row { display: grid; grid-template-columns: var(--col) var(--col); column-gap: var(--gap); }
+  .row > .right { grid-column: 2; }
+  .stack > * + * { margin-top: var(--gap); }
+
+  /* Header */
+  header { display: flex; justify-content: space-between; align-items: center; padding: calc(18 * var(--u)) 0; position: sticky; top: 0; background: #fff; z-index: 10; }
+  header nav { display: flex; align-items: center; gap: calc(32 * var(--u)); }
+  header nav .links { display: flex; gap: calc(28 * var(--u)); }
+  .btn { background: var(--ink); color: #fff; border-radius: 999px; padding: calc(10 * var(--u)) calc(18 * var(--u)); }
+  .btn:hover { opacity: .8; }
+
+  /* Media */
+  .media { background: var(--media); border-radius: var(--radius); overflow: hidden; position: relative; }
+  .media span { position: absolute; left: 16px; bottom: 16px; color: #737373; }
+  .media img { width: 100%; height: 100%; object-fit: cover; }
+  .full { width: 100%; }
+
+  /* Footer */
+  .footer-bar { display: flex; justify-content: space-between; padding-bottom: calc(32 * var(--u)); }
+  .footer-bar .social { display: flex; gap: calc(24 * var(--u)); }
+
+  .sp { height: calc(var(--h) * var(--u)); }
+
+  /* Lenis smooth scroll base styles */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+
+  /* Hover wave: letters fade out and back in, one after another */
+  .wave .ch { display: inline-block; white-space: pre; }
+  .wave.is-waving .ch { animation: wave-fade .55s cubic-bezier(.25,.46,.45,.94) both; animation-delay: calc(var(--i) * 40ms); }
+  @keyframes wave-fade { 0% { opacity: 1; } 45% { opacity: .3; } 100% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .wave.is-waving .ch { animation: none; } }
+
+  /* Carousel */
+  .carousel { isolation: isolate; user-select: none; }
+  .carousel .track { display: flex; height: 100%; transition: transform 1.6s cubic-bezier(.77,0,.18,1); will-change: transform; }
+  .carousel .slide { flex: 0 0 100%; height: 100%; background: var(--media); overflow: hidden; position: relative; }
+  .carousel .slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 2.4s cubic-bezier(.22,1,.36,1); }
+  .carousel .slide.is-active img { transform: scale(1); }
+  .carousel .slide.missing img { display: none; }
+  .carousel-ui { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: flex-end; align-items: center; padding: calc(20 * var(--u)) calc(24 * var(--u)); color: #fff; pointer-events: none; mix-blend-mode: difference; }
+  .carousel .dots { display: flex; gap: 8px; }
+  .carousel .dots .dot { width: 28px; height: 2px; border: 0; padding: 0; background: rgba(255,255,255,.4); position: relative; overflow: hidden; }
+  .carousel .dots .dot::after { content: ""; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left; }
+  .carousel .dots .dot.is-active::after { transform: scaleX(1); transition: transform var(--dur, 4s) linear; }
+    @media (prefers-reduced-motion: reduce) {
+    .carousel .track, .carousel .slide img { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <a class="label" href="#">About</a>
+    <nav>
+      <div class="links">
+        <a class="label" href="#">Device</a>
+        <a class="label" href="#">Function</a>
+        <a class="label" href="#">Variations</a>
+      </div>
+      <a class="label btn" href="#">Reserve</a>
+    </nav>
+  </header>
+
+  <div class="sp" style="--h:220"></div>
+
+  <section class="row">
+    <div>
+      <p class="label muted">Born Out</p>
+      <p class="label">Of Necessity</p>
+    </div>
+    <div>
+      <p class="label muted">Quietly</p>
+      <p class="label">Looks like a necklace.</p>
+      <p class="label">Works like a witness.</p>
+      <p class="label">Speaks up</p>
+      <p class="label">before you have to.</p>
+    </div>
+  </section>
+
+  <div class="sp" style="--h:200"></div>
+
+  <h1 class="display">Bjärke</h1>
+
+  <div class="sp" style="--h:56"></div>
+
+  <!-- Hero carousel: autoplay starts on the visitor's first scroll -->
+  <div class="carousel media full" style="aspect-ratio: 1328 / 800;" aria-roledescription="carousel" aria-label="Bjärke gallery">
+    <div class="track">
+      <div class="slide"><img src="bjarke-necklace.png" alt="Bjärke pendant worn on a leather cord"></div>
+      <div class="slide"><img src="slides/slide-2.png" alt="Bjärke gallery image 2"></div>
+      <div class="slide"><img src="slides/slide-3.png" alt="Bjärke gallery image 3"></div>
+    </div>
+  </div>
+
+  <div class="sp" style="--h:80"></div>
+
+  <p class="statement">Safety that doesn’t look like safety. Jewelry that pays attention when you can’t, and calls for backup when it counts.</p>
+
+  <div class="sp" style="--h:80"></div>
+
+  <section class="stack" style="--gap: calc(28 * var(--u));">
+    <div class="row"><p class="body right">Bjärke is an AI-powered pendant that lets you worry less and enjoy more: the walk home, the solo Uber to the party, the conversation that starts to feel wrong.</p></div>
+    <div class="row"><p class="body right">A discreet built-in camera reads what’s happening around you. When something feels off, Bjärke notices first. It records everything as evidence and, if it’s warranted, alerts your emergency contact.</p></div>
+    <div class="row"><p class="body right">And if you need it, a bright light flashes to tell anyone nearby to back off. The rest of the time, it’s chic enough to wear anywhere the night takes you.</p></div>
+    <div class="row"><a class="label right" href="#">Lorem ipsum →</a></div>
+  </section>
+
+  <div class="sp" style="--h:240"></div>
+
+  <section class="stack">
+    <div class="row">
+      <div class="media" style="height: calc(876 * var(--u));"><span class="label">Media — portrait</span></div>
+      <div class="media" style="height: calc(876 * var(--u));"><span class="label">Media — portrait</span></div>
+    </div>
+    <div class="media full" style="height: calc(1815 * var(--u));"><span class="label">Media — tall full-width</span></div>
+    <div class="row">
+      <div class="media" style="height: calc(744 * var(--u));"><span class="label">Media</span></div>
+      <div class="media" style="height: calc(744 * var(--u));"><span class="label">Media</span></div>
+    </div>
+    <div class="row">
+      <div class="media right" style="height: calc(744 * var(--u));"><span class="label">Media</span></div>
+    </div>
+    <div class="media full" style="height: calc(1815 * var(--u));"><span class="label">Media — tall full-width</span></div>
+  </section>
+
+  <div class="sp" style="--h:120"></div>
+  <section class="row">
+    <p class="label">Lorem ipsum</p>
+    <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </section>
+  <div class="sp" style="--h:120"></div>
+
+  <section class="stack">
+    <div class="row">
+      <div class="media" style="height: calc(876 * var(--u));"><span class="label">Media — portrait</span></div>
+    </div>
+    <div class="row">
+      <div class="media right" style="height: calc(744 * var(--u));"><span class="label">Media</span></div>
+    </div>
+  </section>
+
+  <div class="sp" style="--h:120"></div>
+  <section class="row">
+    <p class="label">Lorem ipsum</p>
+    <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </section>
+  <div class="sp" style="--h:120"></div>
+
+  <section class="stack">
+    <div class="row">
+      <div class="media" style="height: calc(744 * var(--u));"><span class="label">Media</span></div>
+    </div>
+    <div class="media full" style="height: calc(743 * var(--u));"><span class="label">Media — 16:9</span></div>
+    <div class="media full" style="height: calc(1815 * var(--u));"><span class="label">Media — tall full-width</span></div>
+  </section>
+
+  <div class="sp" style="--h:400"></div>
+
+  <p class="label">Lorem ipsum</p>
+  <div class="sp" style="--h:28"></div>
+  <section class="row">
+    <a href="#">
+      <div class="media" style="height: calc(438 * var(--u));"><span class="label">Media — thumbnail</span></div>
+      <p class="body" style="margin-top: calc(18 * var(--u));">Lorem ipsum dolor</p>
+    </a>
+    <a href="#">
+      <div class="media" style="height: calc(438 * var(--u));"><span class="label">Media — thumbnail</span></div>
+      <p class="body" style="margin-top: calc(18 * var(--u));">Sit amet consectetur</p>
+    </a>
+  </section>
+
+  <div class="sp" style="--h:320"></div>
+
+  <footer>
+    <section class="row">
+      <div class="right">
+        <p class="statement">Lorem ipsum dolor sit amet</p>
+        <a class="body" href="mailto:lorem@ipsum.com" style="display:block; margin-top: calc(40 * var(--u));">lorem@ipsum.com</a>
+      </div>
+    </section>
+    <div class="sp" style="--h:240"></div>
+    <div class="footer-bar">
+      <p class="label">© Lorem ipsum</p>
+      <div class="social">
+        <a class="label" href="#">Lorem</a>
+        <a class="label" href="#">Ipsum</a>
+        <a class="label" href="#">Dolor</a>
+      </div>
+      <a class="label" href="#">Privacy</a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Smooth inertial scrolling (Lenis, open source, MIT) -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  if (typeof Lenis === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const lenis = new Lenis({
+    lerp: 0.08,          // lower = floatier, higher = snappier (0.05–0.15 feels good)
+    wheelMultiplier: 1,
+    smoothWheel: true,
+  });
+  function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  // Make in-page anchor links glide instead of jump
+  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -80 }); }
+  }));
+})();
+</script>
+<script>
+(() => {
+  const root = document.querySelector('.carousel');
+  if (!root) return;
+  const track = root.querySelector('.track');
+  const slides = [...root.querySelectorAll('.slide')];
+  const dotsWrap = root.querySelector('.dots');
+  const INTERVAL = 6500; // ms per slide
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let index = 0, timer = null, started = false;
+
+  // Mark slides whose image is missing so they show the grey placeholder instead of a broken icon
+  slides.forEach(s => {
+    const img = s.querySelector('img');
+    img.addEventListener('error', () => s.classList.add('missing'));
+  });
+
+  const dots = !dotsWrap ? [] : slides.map((_, i) => {
+    const b = document.createElement('span');
+    b.className = 'dot';
+    dotsWrap.appendChild(b);
+    return b;
+  });
+  root.style.setProperty('--dur', INTERVAL + 'ms');
+
+  // Seamless loop: a copy of the first slide sits after the last one.
+  // After sliding onto the copy, we jump back to the real first slide with no animation,
+  // so the carousel always keeps moving in the same direction.
+  const clone = slides[0].cloneNode(true);
+  clone.classList.remove('is-active');
+  clone.setAttribute('aria-hidden', 'true');
+  track.appendChild(clone);
+  const all = [...slides, clone];
+  const N = slides.length;
+
+  function setPos(i, animate) {
+    if (!animate) track.style.transition = 'none';
+    track.style.transform = `translateX(-${i * 100}%)`;
+    if (!animate) { void track.offsetWidth; track.style.transition = ''; }
+  }
+  function go(i) {
+    index = i;
+    setPos(index, true);
+    const real = index % N;
+    all.forEach((s, j) => s.classList.toggle('is-active', j === index));
+    dots.forEach((d, j) => {
+      d.classList.remove('is-active');
+      if (j === real && started) { void d.offsetWidth; d.classList.add('is-active'); }
+    });
+  }
+  track.addEventListener('transitionend', e => {
+    if (e.target !== track || index !== N) return;
+    // Landed on the copy of slide 1: snap to the real slide 1 without animating
+    slides[0].classList.add('is-active');
+    clone.classList.remove('is-active');
+    index = 0;
+    setPos(0, false);
+  });
+  function restart() {
+    clearInterval(timer);
+    if (!started || reduced) return;
+    timer = setInterval(() => {
+      // Safety net if the snap-back didn't fire (e.g. the tab was in the background)
+      if (index === N) { slides[0].classList.add('is-active'); index = 0; setPos(0, false); }
+      go(index + 1);
+    }, INTERVAL);
+  }
+
+
+  go(0);
+  slides[0].classList.add('is-active');
+
+  // Autoplay begins only after the visitor first scrolls
+  function start() {
+    if (started) return;
+    started = true;
+    window.removeEventListener('scroll', start);
+    window.removeEventListener('wheel', start);
+    window.removeEventListener('touchmove', start);
+    go(index + 1);   // first move happens right away on scroll
+    restart();
+  }
+  window.addEventListener('scroll', start, { passive: true });
+  window.addEventListener('wheel', start, { passive: true });
+  window.addEventListener('touchmove', start, { passive: true });
+  // Fallback: begin on its own shortly after load if the visitor hasn't scrolled yet
+  setTimeout(start, 3000);
+})();
+</script>
+<script>
+// Hover wave on menu and footer links
+(() => {
+  const links = document.querySelectorAll('header a, .footer-bar a');
+  links.forEach(link => {
+    const text = link.textContent;
+    link.setAttribute('aria-label', text.trim());
+    link.textContent = '';
+    [...text].forEach((c, i) => {
+      const s = document.createElement('span');
+      s.className = 'ch'; s.textContent = c; s.style.setProperty('--i', i);
+      s.setAttribute('aria-hidden', 'true');
+      link.appendChild(s);
+    });
+    link.classList.add('wave');
+    const last = link.lastElementChild;
+    link.addEventListener('mouseenter', () => {
+      link.classList.remove('is-waving'); void link.offsetWidth; link.classList.add('is-waving');
+    });
+    last && last.addEventListener('animationend', () => link.classList.remove('is-waving'));
+  });
+})();
+</script>
+</body>
+</html>
