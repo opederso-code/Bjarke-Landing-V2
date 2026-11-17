@@ -14,9 +14,13 @@ prototype is being built. Features below are design targets, not a shipped produ
 Name: from Swedish "Björn" (bear); the team reads Bjärke as "little bear". A small bear motif is an option.
 
 ## Core features (design targets)
-1. Double press the pendant to alert a trusted contact and share live location. No phone unlock needed.
-2. Press to record a short clip, with a visible recording light. Footage stays encrypted on the pendant
-   unless the wearer shares it.
+Confirmed by Oliver on 2026-11-16: the pendant is always on. Its camera watches continuously and built-in
+AI detects on its own when something is wrong. The wearer does not need to press or pull anything.
+This supersedes the press-only wording in the older team documents.
+1. Always-on camera with automatic detection. When it detects a problem it alerts a trusted contact and
+   shares live location. No phone unlock and no button press needed.
+2. Records automatically when something is detected, so there is evidence.
+   (How footage is stored and who can see it: see Open decisions.)
 3. Swappable shells so it reads as an accessory: signal red with off-white, plus yellow, blue, purple, teal.
    A premium gold model is also planned.
 4. Companion app: manage trusted contacts, friend check-ins, linked pendants ("everyone's home").
@@ -25,12 +29,13 @@ Name: from Swedish "Björn" (bear); the team reads Bjärke as "little bear". A s
 
 ## Value propositions, in priority order
 1. Help without unlocking your phone. Feeling: calm, never alone, like bringing a trusted friend along.
-2. Evidence on your terms. Feeling: in control, not creepy.
+2. It notices so she doesn't have to. Evidence is captured automatically. Feeling: looked after, in control, not creepy.
 3. Something you actually want to wear. "A safety device in a drawer protects nobody."
 
-## Non-negotiables (from the messaging doc)
-- Recording is always visible and only happens when the wearer asks for it. Nothing always-on, nothing hidden.
-- The wearer owns her footage and location. Nothing is shared unless she chooses.
+## Non-negotiables
+The older messaging doc said recording happens only when the wearer asks, with nothing always-on.
+That rule no longer holds (see the confirmation above). The rest still stand unless Oliver says otherwise:
+- The wearer owns her footage and location.
 - The alert has to work every time.
 - It always has to look good.
 
@@ -102,9 +107,14 @@ its own connection so it works when the phone is dead or out of reach.
 - Advice: too much text and the writing sounds generic; looks too AI; the product image is not a proper rendering.
 
 ## Open decisions (resolve before writing final copy)
-1. Recording: the messaging doc says press-only and "never records on its own". The current site
-   (index.html, device.html) and the user-test sheet describe a camera that watches all night and records
-   automatically. The funding application calls automatic detection a later exploration. These conflict.
+1. RESOLVED: always-on camera with automatic detection; no press needed. Still open as a result:
+   - Is there also a manual trigger (double press) as a backup?
+   - What is stored: is the camera only analysing until something is detected, or saving footage all night?
+   - Where footage lives, who can see it, and whether a light shows when it is saving a clip.
+   - How the page answers the persona's stated worries: "a conspicuous camera", bystander consent and
+     "unwanted recording". The always-on design makes the privacy section more important, not less.
+   - Audio recording without consent is restricted in some states (California included). Check before launch.
+   - The team funnel copy below ("records only when you press") is now out of date and must not be reused as is.
 2. Does the pendant have its own connection, or alert through the phone over Bluetooth? Docs say both.
 3. Is the light a recording indicator, or a deterrent flash? The site says deterrent; the docs say indicator.
 4. Visual direction: the docs call for bright, playful, signal red. The current site is minimal black and white.
