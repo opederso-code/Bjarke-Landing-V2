@@ -4,6 +4,9 @@ Bjärke is a female-safety wearable: an AI-powered pendant with a tiny camera th
 something is off, records, alerts an emergency contact, and flashes a bright light. The hardware
 core is small enough to sit inside interchangeable shells, so the wearer picks the look.
 
+**Read `PRODUCT.md` before writing or changing any copy.** It holds the product facts, audience,
+tone, pricing, competitor notes, tester feedback and the open decisions that are not settled yet.
+
 ## Where things live
 - **Live site (Vercel):** https://bjarke-landing-v2.vercel.app — auto-deploys on every push to `main`
 - **Repo:** https://github.com/opederso-code/Bjarke-Landing-V2
