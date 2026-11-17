@@ -117,9 +117,11 @@ its own connection so it works when the phone is dead or out of reach.
    - The team funnel copy below ("records only when you press") is now out of date and must not be reused as is.
 2. Does the pendant have its own connection, or alert through the phone over Bluetooth? Docs say both.
 3. Is the light a recording indicator, or a deterrent flash? The site says deterrent; the docs say indicator.
-4. Visual direction: the docs call for bright, playful, signal red. The current site is minimal black and white.
+4. RESOLVED: minimal, restrained, product-first (rhode-led). See the Decisions section of DESIGN_DIRECTION.md.
+   This departs from the bright, playful direction in the older team docs.
 5. Pricing shown on the form ("Standard release, $125") does not match the $70 launch price.
 6. Shell line-up and whether the gold model is offered at launch. Current hero photos show gold, silver
    and a black clover pendant, none of which match the colored pill shells in the docs.
 7. Subscription or one-time purchase. Not decided.
-8. Product imagery: testers want a real render, not AI-generated lifestyle images.
+8. RESOLVED (approach): product-first renders or photos on plain tinted panels, one per shell; at most two
+   lifestyle photos of real people. Still needed: the actual renders.

@@ -45,8 +45,40 @@ Read PRODUCT.md first. It decides what the product does and what we may claim.
 - A privacy section is required (always-on camera). Neither reference has an equivalent; design it with the
   same calm, minimal treatment as the rest.
 
+## Decisions (made 2026-11-16, rhode-led)
+Oliver asked for the design choices to be settled in the spirit of rhode's site. Original values throughout.
+1. Direction: minimal and restrained. The playful, bright "Starface-style" route is dropped.
+   Colour comes from the product shells, not from the page.
+2. Palette: warm off-white page (#F6F3EE), soft grey-beige panels (#EAE6DF), near-black text (#1B1A18),
+   muted text (#7A766F). No accent colour in the interface. Buttons are near-black pills with off-white text.
+   Signal red appears only on the red shell and on the recording/alert indicator in diagrams.
+3. Type: one sans-serif family (keep Geist), regular and medium weights only, lowercase for headings,
+   labels and buttons; sentence case for body copy. Largest heading 44px on mobile, 72px on desktop.
+   Archivo uppercase labels are retired.
+4. Shape: pill buttons; 16px corners on cards and images (24px on desktop hero); no borders or drop shadows.
+5. Homepage order: announcement bar → header → hero (one product image, one headline, one button) →
+   shell picker with product card → how it works (3 steps) → three pillars (how it works, privacy, design) →
+   privacy section → FAQ → email capture → footer. Nothing else.
+6. Menu: three items — shop, how it works, about — plus "reserve" as the pill button.
+7. Hero: a single still image of the product on a plain tinted background. The auto-playing carousel is removed.
+8. Product imagery: product-first, shot or rendered straight-on against plain tinted panels, one per shell.
+   At most two lifestyle photos on the page, both of real people. No AI-generated images presented as the product.
+9. Shell picker: named colour swatches (small circles) under the product image; selecting one swaps the image
+   and the name. Gold is shown as a separate "limited" card with a badge.
+10. Price display: launch price with the MSRP struck through beside it, and "$1 reserves yours" under the button.
+11. Scarcity: a "first batch" label and waitlist language. Show a launch date only once a real one exists.
+12. Motion: fades and 8px slides at 300ms; image cross-fade on shell change; reserve form opens as a slide-in drawer.
+    Keep Lenis. Remove the page-transition panel, the letter-wave menu hover and the 283px display headline.
+13. Proof: small text badges under the hero only when true (for example "built at USC Iovine and Young Academy").
+    No star ratings.
+14. Copy length: headings up to 6 words, descriptors up to 10, body paragraphs up to 2 short sentences.
+
+Not decided here, because they are product facts only the team can answer (see PRODUCT.md):
+own connection or phone Bluetooth, what footage is stored and who sees it, what the light does,
+subscription or one-time, and the final shell line-up.
+
 ## Look and feel (original, in this spirit)
-- Warm off-white background instead of pure white; near-black text; one accent colour (signal red from the brand docs).
+- Warm off-white background instead of pure white; near-black text; no interface accent colour (see Decisions).
 - Soft, rounded shapes: pill buttons, generously rounded image corners and cards.
 - One quiet sans-serif family, mostly lowercase or sentence case, medium weight, small sizes, generous line spacing.
   Keep Geist unless a better free option is proposed. Retire the 283px display size on mobile.
