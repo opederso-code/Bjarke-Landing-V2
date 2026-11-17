@@ -109,19 +109,29 @@ its own connection so it works when the phone is dead or out of reach.
 ## Open decisions (resolve before writing final copy)
 1. RESOLVED: always-on camera with automatic detection; no press needed. Still open as a result:
    - Is there also a manual trigger (double press) as a backup?
-   - What is stored: is the camera only analysing until something is detected, or saving footage all night?
-   - Where footage lives, who can see it, and whether a light shows when it is saving a clip.
+   - RESOLVED: recordings are saved and stay private to the wearer. Nothing is shared unless she decides to
+     share it, so it can serve as evidence later. The light shows when it is recording (see 3).
+   - Still open: whether footage is kept on the pendant, in the app or in the cloud, and for how long.
+   - Still open: whether everything the camera sees is saved or only clips from when something is detected.
+     Oliver's wording was "choose to save is saved"; confirm what the wearer chooses.
    - How the page answers the persona's stated worries: "a conspicuous camera", bystander consent and
      "unwanted recording". The always-on design makes the privacy section more important, not less.
    - Audio recording without consent is restricted in some states (California included). Check before launch.
    - The team funnel copy below ("records only when you press") is now out of date and must not be reused as is.
-2. Does the pendant have its own connection, or alert through the phone over Bluetooth? Docs say both.
-3. Is the light a recording indicator, or a deterrent flash? The site says deterrent; the docs say indicator.
+2. RESOLVED (Oliver, 2026-11-16): the pendant has its own connection with a built-in SIM. It can send alerts
+   without the phone. Copy may say it works when the phone is dead or out of reach.
+   Still open: who pays for the data (see 7), and coverage limits to state in the FAQ.
+   Note: the current prototype parts list is Bluetooth-only, so this describes the launch product, not the prototype.
+3. RESOLVED: the light is a deterrent that also shows the pendant is recording. It tells people nearby that
+   they are being recorded and should back off.
 4. RESOLVED: minimal, restrained, product-first (rhode-led). See the Decisions section of DESIGN_DIRECTION.md.
    This departs from the bright, playful direction in the older team docs.
 5. Pricing shown on the form ("Standard release, $125") does not match the $70 launch price.
-6. Shell line-up and whether the gold model is offered at launch. Current hero photos show gold, silver
+6. PARTLY RESOLVED: every shell Oliver lists is available at launch. The list itself is still to come.
+   Earlier note: shell line-up and whether the gold model is offered at launch. Current hero photos show gold, silver
    and a black clover pendant, none of which match the colored pill shells in the docs.
-7. Subscription or one-time purchase. Not decided.
+7. RESOLVED: one-time purchase, no subscription. Copy may say "no subscription".
+   Still open: a built-in SIM has an ongoing data cost. Decide whether it is included for life, for a set
+   period, or covered some other way before promising "no fees ever".
 8. RESOLVED (approach): product-first renders or photos on plain tinted panels, one per shell; at most two
    lifestyle photos of real people. Still needed: the actual renders.
