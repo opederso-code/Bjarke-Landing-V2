@@ -238,9 +238,14 @@
 (() => {
   if (typeof Lenis === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const lenis = new Lenis({
-    lerp: 0.08,          // lower = floatier, higher = snappier (0.05–0.15 feels good)
-    wheelMultiplier: 1,
+    // Time-based easing: every scroll glides for the same length of time and settles
+    // softly, instead of drifting. Raise duration for floatier, lower for snappier.
+    duration: 1.1,
+    easing: t => 1 - Math.pow(1 - t, 4),   // quick start, long gentle stop
     smoothWheel: true,
+    wheelMultiplier: 0.9,                   // slightly calmer per notch of the mouse wheel
+    touchMultiplier: 1.4,
+    syncTouch: false,                       // phones and tablets keep their native, familiar scroll
   });
   window.__lenis = lenis;
   function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
