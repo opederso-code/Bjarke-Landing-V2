@@ -111,9 +111,13 @@ its own connection so it works when the phone is dead or out of reach.
    - Is there also a manual trigger (double press) as a backup?
    - RESOLVED: recordings are saved and stay private to the wearer. Nothing is shared unless she decides to
      share it, so it can serve as evidence later. The light shows when it is recording (see 3).
-   - Still open: whether footage is kept on the pendant, in the app or in the cloud, and for how long.
-   - Still open: whether everything the camera sees is saved or only clips from when something is detected.
-     Oliver's wording was "choose to save is saved"; confirm what the wearer chooses.
+   - RESOLVED (Oliver, 2026-11-16): it works like a car dash cam. The camera records on a loop and
+     overwrites itself when nothing happens. When it detects an incident (for example harassment), it
+     automatically keeps that clip: saved on the pendant and uploaded to the cloud for the wearer.
+     Footage lives locally and can also be uploaded to the cloud. Plain-language line for the site:
+     "Like a dash cam: it only keeps what matters."
+   - Still open: how long the loop is before it overwrites, how long saved clips are kept, and whether
+     cloud clips are encrypted and who at Bjärke (if anyone) can access them.
    - How the page answers the persona's stated worries: "a conspicuous camera", bystander consent and
      "unwanted recording". The always-on design makes the privacy section more important, not less.
    - Audio recording without consent is restricted in some states (California included). Check before launch.
@@ -131,7 +135,7 @@ its own connection so it works when the phone is dead or out of reach.
    Earlier note: shell line-up and whether the gold model is offered at launch. Current hero photos show gold, silver
    and a black clover pendant, none of which match the colored pill shells in the docs.
 7. RESOLVED: one-time purchase, no subscription. Copy may say "no subscription".
-   Still open: a built-in SIM has an ongoing data cost. Decide whether it is included for life, for a set
-   period, or covered some other way before promising "no fees ever".
+   Data: Oliver's reply read "Food for life", taken to mean the SIM data is good (included) for life.
+   CONFIRM this with Oliver before the site says "data included for life" or "no fees ever".
 8. RESOLVED (approach): product-first renders or photos on plain tinted panels, one per shell; at most two
    lifestyle photos of real people. Still needed: the actual renders.
