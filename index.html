@@ -93,7 +93,7 @@
     <a class="label" href="#">About</a>
     <nav>
       <div class="links">
-        <a class="label" href="#">Device</a>
+        <a class="label" href="device.html" data-transition>Device</a>
         <a class="label" href="#">Function</a>
         <a class="label" href="#">Variations</a>
       </div>
@@ -242,6 +242,7 @@
     wheelMultiplier: 1,
     smoothWheel: true,
   });
+  window.__lenis = lenis;
   function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
   // Make in-page anchor links glide instead of jump
@@ -363,5 +364,6 @@
   });
 })();
 </script>
+<script src="transition.js"></script>
 </body>
 </html>
