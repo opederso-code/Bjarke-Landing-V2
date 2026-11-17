@@ -7,6 +7,9 @@ core is small enough to sit inside interchangeable shells, so the wearer picks t
 **Read `PRODUCT.md` before writing or changing any copy.** It holds the product facts, audience,
 tone, pricing, competitor notes, tester feedback and the open decisions that are not settled yet.
 
+**Read `DESIGN_DIRECTION.md` before changing layout or styling.** It sets the look, the page sections and
+the functions to build. It replaces the "Design system" section below wherever the two disagree.
+
 ## Where things live
 - **Live site (Vercel):** https://bjarke-landing-v2.vercel.app — auto-deploys on every push to `main`
 - **Repo:** https://github.com/opederso-code/Bjarke-Landing-V2
